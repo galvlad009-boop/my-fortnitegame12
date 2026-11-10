@@ -1,0 +1,138 @@
+<div class="chance">
+        <div class="chance-label">
+            ШАНС ПОЛУЧИТЬ ПИРАТСКИЙ ЖЕТОН
+        </div>
+
+        <div class="chance-number">
+            1 : 137 000
+        </div>
+    </div>
+
+    <button onclick="play()">
+        ⚡ ИСПЫТАТЬ УДАЧУ
+    </button>
+
+    <div class="result" id="result">
+
+        <div class="result-icon" id="icon">
+            🎲
+        </div>
+
+        <div class="result-text" id="text">
+            ГОТОВ?
+        </div>
+
+    </div>
+
+    <div class="stats-title">
+        ТВОЯ СТАТИСТИКА
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-label">
+                ВСЕГО ПОПЫТОК
+            </div>
+
+            <div class="stat-number" id="total">
+                0
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">
+                🏴‍☠️ ЖЕТОНЫ
+            </div>
+
+            <div class="stat-number gold" id="yes">
+                0
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">
+                😂 ЛОХ
+            </div>
+
+            <div class="stat-number red" id="no">
+                0
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-label">
+                ШАНС
+            </div>
+
+            <div class="stat-number gold">
+                0.00073%
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        PIRATE LUCK • GOOD LUCK
+    </div>
+
+</div>
+
+<script>
+
+let total = 0;
+let yes = 0;
+let no = 0;
+
+function play() {
+
+    total++;
+
+    const number = Math.floor(
+        Math.random() * 137000
+    ) + 1;
+
+    const result = document.getElementById("result");
+    const icon = document.getElementById("icon");
+    const text = document.getElementById("text");
+
+    result.classList.remove("pop");
+
+    void result.offsetWidth;
+
+    result.classList.add("pop");
+
+    if (number === 1) {
+
+        yes++;
+
+        icon.textContent = "🏴‍☠️";
+
+        text.textContent = "ПИРАТСКИЙ ЖЕТОН!";
+
+        text.className = "result-text win";
+
+    } else {
+
+        no++;
+
+        icon.textContent = "😂";
+
+        text.textContent = "ЛОХ";
+
+        text.className = "result-text lose";
+
+    }
+
+    document.getElementById("total").textContent = total;
+
+    document.getElementById("yes").textContent = yes;
+
+    document.getElementById("no").textContent = no;
+
+}
+
+</script>
+
+</body>
+</html>
